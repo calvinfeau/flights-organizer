@@ -1,0 +1,81 @@
+body {
+  padding: 5vmax;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  width: 90vw;
+  height: 70vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+a, h2 {
+  color: steelblue;
+}
+
+a {
+  text-decoration: none;
+}
+
+h2 {
+  text-align: center;
+}
+
+body > a {
+text-align: right;
+font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+background-color: steelblue;
+border-radius: 10%;
+color: white;
+height: 2.5vh;
+padding: 1vh;
+}
+
+table {
+  text-align: left;
+  height: 50vh;
+  width: 90vw;
+}
+
+table > thead > tr > th {
+  color: steelblue;
+}
+
+form {
+  display: flex;
+  width: 90vw;
+  justify-content: space-around;
+}
+label {
+  display: flex;
+  flex-direction: column;
+  font-style: italic;
+  height: 8vh;
+  justify-content: space-around;
+}
+
+#all-flight {
+  text-align: center;
+}
+
+input {
+  border: none;
+}
+
+#add-flight {
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  cursor: pointer;
+  background-color: steelblue;
+  border-radius: 10%;
+  color: white;
+  height: 6vh;
+}
+
+select {
+  background-color: steelblue;
+  color: white;
+}
+
+.passed-flights {
+  color: maroon;
+}
