@@ -8,9 +8,8 @@ module.exports = {
 };
 
 function index(req, res) {
-    Flight.find({}, function(err, flights){
-        function sortedFlights() {
-            flights.sort(function(a, b) {return a.departs - b.departs});}
+    Flight.find({}, function(err, flights) {
+        flights.sort(function(a, b) {return a.departs - b.departs});
         res.render('flights/index', {flights: flights})
     });
 }
