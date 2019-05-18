@@ -8,8 +8,10 @@ body {
   justify-content: space-around;
   align-items: center;
 }
-
-a, h2 {
+thead {
+  text-align: center;
+}
+h2 {
   color: steelblue;
 }
 
@@ -35,10 +37,12 @@ table {
   text-align: left;
   height: 50vh;
   width: 90vw;
+  border-spacing: 1rem;
+  border-collapse: collapse;
 }
 
-table > thead > tr > th {
-  color: steelblue;
+#last-row {
+  border-bottom: 1px solid black;
 }
 
 form {
@@ -46,6 +50,7 @@ form {
   width: 90vw;
   justify-content: space-around;
 }
+
 label {
   display: flex;
   flex-direction: column;
@@ -58,11 +63,14 @@ label {
   text-align: center;
 }
 
+tr:nth-child(odd) {
+  background-color: lightsteelblue;
+}
 input {
   border: none;
 }
 
-#add-flight {
+input[type="submit"] {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   cursor: pointer;
   background-color: steelblue;
@@ -79,3 +87,12 @@ select {
 .passed-flights {
   color: maroon;
 }
+
+#header {
+  background-color: white;
+}
+
+#detail {
+  color: black;
+}
+

@@ -28,7 +28,8 @@ var flightSchema = new Schema ({
         enum: ['AUS', 'DAL', 'LAX', 'SEA'],
         default: 'SEA'
     },
-    destination: [destinationSchema]
+    destination: [destinationSchema],
+    tickets: [{type: Schema.Types.ObjectId, ref: "Ticket"}]
 });
 
 module.exports = mongoose.model('Flight', flightSchema);

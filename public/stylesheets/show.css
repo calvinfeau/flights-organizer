@@ -1,0 +1,99 @@
+body {
+    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+  }
+  
+  h2 {
+    color: steelblue;
+  }
+  
+  a {
+    text-decoration: none;
+    text-align: right;
+    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    background-color: steelblue;
+    border-radius: 10%;
+    color: white;
+    height: 2.5vh;
+    padding: 1vh;
+
+  }
+  
+  h2 {
+    text-align: center;
+  }
+
+  nav {
+      width: 100vw;
+      display: flex;
+      justify-content: space-around;
+  }
+  
+  table {
+    text-align: left;
+    width: 90vw;
+    border-spacing: 1rem;
+    border-collapse: collapse;
+  }
+  
+  #last-row {
+    border-bottom: 1px solid black;
+  }
+  
+  form {
+    display: flex;
+    width: 90vw;
+    justify-content: space-around;
+  }
+  
+  label {
+    display: flex;
+    flex-direction: column;
+    font-style: italic;
+    height: 8vh;
+    justify-content: space-around;
+  }
+  
+  #all-flight {
+    text-align: center;
+  }
+  
+  tr:nth-child(odd) {
+    background-color: lightsteelblue;
+  }
+  input {
+    border: none;
+  }
+  
+  input[type="submit"] {
+    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    cursor: pointer;
+    background-color: steelblue;
+    border-radius: 10%;
+    color: white;
+    height: 6vh;
+  }
+  
+  select {
+    background-color: steelblue;
+    color: white;
+  }
+  
+  .passed-flights {
+    color: maroon;
+  }
+  
+  #header {
+    background-color: white;
+  }
+  
+  #detail {
+    color: black;
+  }
+  
+  
