@@ -25,5 +25,5 @@ function newTicket(req, res) {
     var flightId = req.params.id;
     Flight.findById(flightId, function(err, flight) {
         res.render('tickets/new', {flightId, flight});
-    })
+    });
 }

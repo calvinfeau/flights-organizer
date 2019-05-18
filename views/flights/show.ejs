@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel='stylesheet' href='/stylesheets/show.css' />
+    <link rel='stylesheet' href='/stylesheets/show.css'>
     <title>Mongoose Flights</title>
 </head>
 <body>
@@ -29,21 +29,22 @@
                 <td><%= flight.airport %></td>
             </tr>
             <tr>
-                <th>Departs</th>
+                <th>Departure Time</th>
                 <td><%= flight.departs %></td>
             </tr>
         </tbody>
     </table>
-    <% if (flight.destination.length) { %>
-    <% flight.destination.forEach(function(d) { %>
     <table>
+        <thead>
+            <th>Arrival Airport</th>
+            <th>Estimated Arrival Time</th>
+        </thead>
         <tbody>
+            <% if (flight.destination.length) { %>
+            <% flight.destination.forEach(function(d) { %>
+            <tr></tr>
             <tr>
-                <th>Arrival Airport</th>
                 <td><%= d.airport %></td>
-            </tr>
-            <tr>
-                <th>Arrival</th>
                 <td><%= d.arrival %></td>
             </tr>
             <% })} %>
@@ -55,23 +56,24 @@
             <th>Price</th>
         </thead>
         <tbody>
+        <% if (tickets) { %>
+        <% flight.tickets.forEach(function(ticket) { %>
         <tr>
-            <% if (tickets) { %>
-            <% flight.tickets.forEach(function(ticket) { %>
             <td><%= ticket.seat %></td>
             <td><%= ticket.price %></td>
-            <% })} %>
-         </tr>
+            <button type="button" >X</button>
+        </tr>
+        <% })} %>
     </table>
-    <br>
     <br>
     <form action="/flights/<%= flight._id %>/destinations" method="POST">
         <label>Airport:
             <select name="airport">
-                <option value="AUS">AUS</option>
-                <option value="DAL">DAL</option>
-                <option value="LAX">LAX</option>
-                <option value="SEA">SEA</option>
+                <% flight.schema.path('airport').enumValues.forEach(function(a) { %>
+                <% if(flight.airport !== a) { %>
+                <% console.log(a) %>
+                <option value="<%= a %>"><%= a %></option>
+                <% }}) %>
             </select>
         </label>
         <label>Arrival:

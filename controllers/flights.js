@@ -9,9 +9,13 @@ module.exports = {
 };
 
 function index(req, res) {
-    Flight.find({}, function(err, flights) {
-        flights.sort(function(a, b) {return a.departs - b.departs});
-        res.render('flights/index', {flights: flights})
+    var sort = {};
+    var sortBy = req.query.sortBy;
+    var sortDir = req.query.sortDir;
+    sort[sortBy] = 1 * sortDir;
+    var flights = Flight.find({}).sort(sort).exec(function(err, flights) {
+        // flights.sort(function(a, b) {return a.departs - b.departs});
+        res.render('flights/index', {flights});
     });
 }
 
