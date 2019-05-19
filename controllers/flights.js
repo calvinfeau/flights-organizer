@@ -41,8 +41,8 @@ function show(req, res) {
         Ticket.find({_id: {$nin: flight.tickets}})
         .exec(function(err, tickets) {    
         res.render('flights/show', {flight, tickets});
-        })
-    })
+        });
+    });
 }
 
 function deleteTicket(req, res) {

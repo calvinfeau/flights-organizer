@@ -6,7 +6,10 @@ var destinationSchema = new Schema ({
         type: String,
         enum: ['AUS', 'DAL', 'LAX', 'SEA']
     },
-    arrival: Date
+    arrival: {
+        type: Date,
+        default: () => new Date(new Date().setFullYear(new Date().getFullYear() + 1))
+    }
 });
 
 var flightSchema = new Schema ({

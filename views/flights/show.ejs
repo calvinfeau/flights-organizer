@@ -9,80 +9,82 @@
 </head>
 <body>
     <nav>
-        <a href="/flights/<%= flight._id %>/tickets/new">Add ticket</a>
-            <h2>Flight Number: 
-                <% if(flight.flightNo) { %>
+        <h2>Flight Number: 
+            <% if(flight.flightNo) { %>
                 <%= flight.flightNo %>
                 <% } %>
             </h2>
-        <a href="/flights">All Flights</a>
-    </nav>
-    
-    <table>
-        <tbody>
-            <tr>
-                <th>Airline</th>
-                <td><%= flight.airline %></td>
-            </tr>
-            <tr>
-                <th>Departure Airport</th>
-                <td><%= flight.airport %></td>
-            </tr>
-            <tr>
-                <th>Departure Time</th>
-                <td><%= flight.departs %></td>
-            </tr>
-        </tbody>
-    </table>
-    <table>
-        <thead>
-            <th>Arrival Airport</th>
-            <th>Estimated Arrival Time</th>
-        </thead>
-        <tbody>
-            <% if (flight.destination.length) { %>
-            <% flight.destination.forEach(function(d) { %>
-            <tr></tr>
-            <tr>
-                <td><%= d.airport %></td>
-                <td><%= d.arrival %></td>
-            </tr>
-            <% })} %>
-        </tbody>
-    </table>
-    <table>
-        <thead>
-            <th>Seat</th>
-            <th>Price</th>
-        </thead>
-        <tbody>
-        <% if (tickets) { %>
-        <% flight.tickets.forEach(function(ticket) { %>
-        <tr>
-            <td><%= ticket.seat %></td>
-            <td><%= ticket.price %></td>
-            <form action="/flights/<%= flight._id %>/<%= ticket._id %>?_method=DELETE" method="POST">
-            <button type="submit">X</button>
-            </form>
-        </tr>
-        <% })} %>
-    </table>
-    <br>
-    <form action="/flights/<%= flight._id %>/destinations" method="POST">
-        <label>Airport:
-            <select name="airport">
-                <% flight.schema.path('airport').enumValues.forEach(function(a) { %>
-                <% if(flight.airport !== a) { %>
-                <% flight.destination.forEach(function(d) { %>
-                <% if(d.airport !== a) { %>
-                <option value="<%= a %>"><%= a %></option>
-                <% }})}}) %>
-            </select>
-        </label>
-        <label>Arrival:
-            <input type="datetime-local" name="arrival">
-        </label>
-        <input type="submit" value="Add Details">
-    </form>
-</body>
-</html>
+            <a href="/flights">All Flights</a>
+        </nav>
+        
+        <table id="depart-flight">
+            <tbody>
+                <tr>
+                    <th>Airline</th>
+                    <td><%= flight.airline %></td>
+                </tr>
+                <tr>
+                    <th>Departure Airport</th>
+                    <td><%= flight.airport %></td>
+                </tr>
+                <tr>
+                    <th>Departure Time</th>
+                    <td><%= flight.departs %></td>
+                </tr>
+            </tbody>
+        </table>
+        <div>
+            <table id="arrival-flight">
+                <thead>
+                    <th id="arrival-airport">Arrival Airport</th>
+                    <th>Estimated Arrival Time</th>
+                </thead>
+                <tbody>
+                    <% if (flight.destination.length) { 
+                        console.log(flight.destination[0].airport) %>
+                        <% flight.destination.forEach(function(d) { %>
+                            <tr>
+                                <td id="arrival-airport-list"><%= d.airport %></td>
+                                <td><%= d.arrival %></td>
+                            </tr>
+                            <% })} %>
+                        </tbody>
+                    </table>
+                    <br>
+                    <form action="/flights/<%= flight._id %>/destinations" method="POST">
+                        <label>Airport:
+                            <select name="airport">
+                                <% flight.schema.path('airport').enumValues.forEach(function(a) { %>
+                                    <% if(flight.airport !== a ) { %>
+                                        <option value="<%= a %>"><%= a %></option>
+                                        <% }}) %>
+                                    </select>
+                                </label>
+                                <label>Arrival:
+                                    <input type="datetime-local" name="arrival">
+                                </label>
+                                <input type="submit" value="Add Destination">
+                            </form>
+                        </div>
+                        <table >
+                            <thead>
+                                <th id="seats">Seat</th>
+                                <th>Price</th>
+                                <th id="add-ticket"><a href="/flights/<%= flight._id %>/tickets/new">Add ticket</a></th>
+                            </thead>
+                            <tbody>
+                                <% if (tickets) { %>
+                                    <% flight.tickets.forEach(function(ticket) { %>
+                                        <tr>
+                                            <td><%= ticket.seat %></td>
+                                            <td><%= ticket.price %></td>
+                                            <td><form action="/flights/<%= flight._id %>/<%= ticket._id %>?_method=DELETE" method="POST">
+                                                <button type="submit">X</button>
+                                            </form>
+                                            </td>
+                                        </tr>
+                                        <% })} %>
+                            </tbody>
+                        </table>
+                                </body>
+                                </html>
