@@ -61,7 +61,9 @@
         <tr>
             <td><%= ticket.seat %></td>
             <td><%= ticket.price %></td>
-            <button type="button" >X</button>
+            <form action="/flights/<%= flight._id %>/<%= ticket._id %>?_method=DELETE" method="POST">
+            <button type="submit">X</button>
+            </form>
         </tr>
         <% })} %>
     </table>
@@ -71,9 +73,10 @@
             <select name="airport">
                 <% flight.schema.path('airport').enumValues.forEach(function(a) { %>
                 <% if(flight.airport !== a) { %>
-                <% console.log(a) %>
+                <% flight.destination.forEach(function(d) { %>
+                <% if(d.airport !== a) { %>
                 <option value="<%= a %>"><%= a %></option>
-                <% }}) %>
+                <% }})}}) %>
             </select>
         </label>
         <label>Arrival:
