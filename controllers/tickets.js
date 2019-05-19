@@ -3,7 +3,7 @@ var Ticket = require('../models/ticket');
 
 module.exports = {
     new: newTicket,
-    create
+    create,
 }
 
 function create(req, res) {
@@ -27,3 +27,4 @@ function newTicket(req, res) {
         res.render('tickets/new', {flightId, flight});
     });
 }
+
