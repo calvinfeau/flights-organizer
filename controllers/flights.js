@@ -7,6 +7,7 @@ module.exports = {
     create,
     show,
     delete: deleteTicket,
+    deleteFlight
 };
 
 function index(req, res) {
@@ -14,7 +15,7 @@ function index(req, res) {
     var sortBy = req.query.sortBy;
     var sortDir = req.query.sortDir;
     sort[sortBy] = 1 * sortDir;
-    var flights = Flight.find({}).sort(sort).exec(function(err, flights) {
+    Flight.find({}).sort(sort).exec(function(err, flights) {
         // flights.sort(function(a, b) {return a.departs - b.departs});
         res.render('flights/index', {flights});
     });
@@ -48,5 +49,11 @@ function show(req, res) {
 function deleteTicket(req, res) {
     Ticket.findByIdAndDelete(req.params.ticketId, function(err) {
         res.redirect(`/flights/${req.params.flightId}`);
+    });
+}
+
+function deleteFlight(req, res) {
+    Flight.findByIdAndDelete(req.params.id, function (err) {
+        res.redirect('/flights');
     });
 }

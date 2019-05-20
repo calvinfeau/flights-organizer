@@ -1,6 +1,9 @@
 var Flight = require('../models/flight');
 
-module.exports = {create};
+module.exports = {
+        create,
+        delete: deleteDestination
+};
 
 function create(req, res) {
     Flight.findById(req.params.id, function(err, flight) {
@@ -13,3 +16,13 @@ function create(req, res) {
         });
     });
 }
+
+function deleteDestination(req, res) {
+    console.log(req.params.destinationId);
+    Flight.findById(req.params.flightId, function(err, flight) {
+        flight.destination.id(req.params.destinationId).remove();
+                flight.save(function(err) {
+                    res.redirect(`/flights/${flight._id}`)
+        });
+    })
+};

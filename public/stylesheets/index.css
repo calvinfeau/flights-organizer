@@ -40,7 +40,7 @@ table {
   margin-top: 10vh;
   text-align: left;
   width: 90vw;
-  border-collapse: separate;
+  border-collapse: collapse;
   border-spacing: 2vh;
 
 }
@@ -52,7 +52,7 @@ table {
   display: inline;
 }
 th {  
-  font: 3vh -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font: 2vh -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   color: steelblue;
   font-weight: bold;
   height: 5vh;
@@ -62,7 +62,15 @@ td {
   height: 5vh;
 vertical-align: center;
 }
+#margin-top {
+  height: 3vh;
+}
+tbody tr:nth-child(odd) {
+  background-color: lightgray;
+}
 
-td :nth-child(even) {
-  background-color: lightblue;
+button[type="submit"] {
+  border: none;
+  color: steelblue;
+  background-color: transparent;
 }
