@@ -12,8 +12,11 @@
 <body>
     <nav>
         <h2>New Ticket for Flight: <%= flight.flightNo %></h2>
-        <a href="/flights">All Flights</a>
-        <a href="/flights/<%= flightId %>">Back to Flight</a>
+        <section>
+            <a href="/flights">All Flights</a>
+            <h2>|</h2>
+            <a href="/flights/<%= flightId %>">Back to Flight</a>
+        </section>
     </nav>
     <form action="/flights/<%= flightId %>" method="POST">
         <label>Seat:
@@ -22,7 +25,8 @@
         <label>Price:
             <input type="number" name="price">
         </label>
-        <input type="submit" value="Submit Ticket">
+        <input type="submit" value="Add Ticket">
     </form>
 </body>
+
 </html>

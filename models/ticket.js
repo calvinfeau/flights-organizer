@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
-var ticketSchema = new Schema ({
+var ticketSchema = new Schema({
     seat: {
         type: String,
         match: /[A-F][1-9]\d?/

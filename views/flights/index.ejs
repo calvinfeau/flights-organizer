@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <link rel='stylesheet' href='/stylesheets/index.css' />
     <title>Mongoose Flights</title>
 </head>
+
 <body>
     <nav>
         <h2>All Flights</h2>
@@ -17,25 +19,30 @@
             <tr>
                 <th>Airline</th>
                 <th>Flight</th>
-                <th>Airport<a class="sort-btn" href="/flights?sortBy=airport&sortDir=1">+</a><a class="sort-btn" href="/flights?sortBy=airport&sortDir=-1">-</a></th>
-                <th colspan="3">Departs<a class="sort-btn" href="/flights?sortBy=departs&sortDir=1">+</a><a class="sort-btn" href="/flights?sortBy=departs&sortDir=-1">-</a></th>
+                <th>Airport<a class="sort-btn" href="/flights?sortBy=airport&sortDir=1">+</a><a class="sort-btn"
+                        href="/flights?sortBy=airport&sortDir=-1">-</a></th>
+                <th colspan="3">Departs<a class="sort-btn" href="/flights?sortBy=departs&sortDir=1">+</a><a
+                        class="sort-btn" href="/flights?sortBy=departs&sortDir=-1">-</a></th>
             </tr>
         </thead>
         <tbody>
             <tr id="margin-top"></tr>
             <% flights.forEach(function(flight) { %>
-                <tr <%- flight.departs < new Date() ? 'class="passed-flights"' : '' %>>
-                    <td><%= flight.airline %></td>
-                    <td><%= flight.flightNo %></td>
-                    <td><%= flight.airport %></td>
-                    <td><%= flight.departs %></td>
-                    <td><form action="/flights/<%= flight._id %>?_method=DELETE" class="delete-flight" method="POST">
-                        <button type="submit">X</button></td>
-                    <td><a id="detail-btn" href="/flights/<%= flight._id %>">Details</a></td>
-                </tr>
-                <% }) %>
+            <tr <%- flight.departs < new Date() ? 'class="passed-flights"' : '' %>>
+                <td><%= flight.airline %></td>
+                <td><%= flight.flightNo %></td>
+                <td><%= flight.airport %></td>
+                <td><%= flight.departs %></td>
+                <td>
+                    <form action="/flights/<%= flight._id %>?_method=DELETE" class="delete-flight" method="POST">
+                        <button type="submit">X</button>
+                </td>
+                <td><a id="detail-btn" href="/flights/<%= flight._id %>">Details</a></td>
+            </tr>
+            <% }) %>
         </tbody>
     </table>
 
 </body>
-</html> 
+
+</html>

@@ -9,10 +9,17 @@ body {
     margin: 0;
 }
 
+section {
+    width: 25vw;
+    display: flex;
+    justify-content: space-between;
+}
+
 h2 {
     font: 5vh -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     margin: 0;
 }
+
 h5 {
     font: 2vh -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     color: steelblue;
@@ -36,14 +43,14 @@ nav a {
     color: white;
 }
 
-  a {
+a {
     font: 3vh -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
     text-decoration: none;
     color: steelblue;
-  }
+}
 
 table {
     margin-top: 5vh;
@@ -61,6 +68,7 @@ div {
     flex-direction: column;
     justify-content: center;
 }
+
 #arrival-airport-list, #depart-flight th, #arrival-airport, #seats, .ticket-seat {
     text-align: right;
     padding-right: 10vw;
@@ -113,4 +121,4 @@ button[type="submit"] {
     border: none;
     color: steelblue;
     background-color: transparent;
-  }
+}
